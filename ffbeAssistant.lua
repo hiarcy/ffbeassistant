@@ -25,8 +25,8 @@ setDragDropTiming(100, 250)
 SOURCE_CURRENTVERSION 	= "1.42"
 IMAGE_CURRENTVERSION 	= "1.41"
 
------------------------------
----------- LITTIES ----------
+----------------------------
+---------- Maybe? ----------
 TEXT_SPACE_BUFFER 		= " "
 TEXT_TAB_BUFFER 		= "\t"
 
@@ -121,8 +121,8 @@ VERSION_FILE 			= "https://drive.google.com/uc?id=1J7dhuT6_2wL1CECuXi1NAGwMbs2Q2
 
 SOURCE_FILENAME 		= "ffbeAssistant.lua"
 IMAGE_FILENAME 			= "imageUpdate.lua"
----------- LITTIES ----------
------------------------------
+---------- Maybe? ----------
+----------------------------
 
 
 ----- App Variables? -----
@@ -608,11 +608,12 @@ function toMs(seconds)
 	return seconds / 1000
 end
 
+-- converted this from an example
 function split(inputString, delim)
 	local delim = delim or '%s'
 	local t = {}
 
-	for field, s in string.gmatch(inputString, "([^"..delim.."]*)("..delim.."?)") do
+	for field, s in string.gmatch(inputString, "([^" .. delim .. "]*)(" .. delim .. "?)") do
 		table.insert(t, field)
 		
 		if s == "" then return t end
