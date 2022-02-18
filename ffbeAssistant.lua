@@ -448,8 +448,10 @@ function farm()
 	end
 
 	-- Battle
-	checkForConnectionError(repeatButton, combatButtonsRegion)
-	doBattle()
+	if (state ~= 99) then
+		checkForConnectionError(repeatButton, combatButtonsRegion)
+		doBattle()
+	end
 
 	while (state == 1) do
 		snapshot()
@@ -1005,6 +1007,11 @@ function lapisRefill()
 		if (options == FARM_ARENA_OPTION) then
 			wait(3)
 			nextButtonRegion:existsClick(arenaSetup2)
+		elseif (options == MAINTENANCE_OPTION) then
+			wait(1)
+			middleRegion:existsClick(backButton)
+			toast("Not enough energy for Mog King, skipping this time...")
+			state = 99
 		end
 	else scriptExit(SCRIPTEXIT_FINISHED_DESCRIPTION) end
 end
